@@ -1,23 +1,26 @@
 Pod::Spec.new do |s|
-  s.authors      = "Tencent"
   s.name         = "BuglyHotfix"
-  s.version      = "1.0.0"
-  s.summary      = "BuglyHotfix iOS SDK"
-  s.description  = "iOS library for Bugly App Hotfix Service"
-  s.homepage     = "http://bugly.qq.com/"
-  s.license      = { :type => "Commercial", :text => "©2016 Tencent.com"}
-  s.author       = { "Tencent" => "bugly@tencent.com" }
-  s.source       = { :http => "http://softfile.3g.qq.com/myapp/buglysdk/BuglyHotfix-1.0.0.zip" }
+  s.version      = "2.1.0"
+  s.summary      = "BuglyHotfix iOS SDK. Learn more at https://bugly.qq.com."
+  s.description  = "iOS library for Bugly App Hotfix Service. Sign up for a service at https://bugly.qq.com."
+  s.homepage     = "https://bugly.qq.com/"
+  s.authors      = { "Bugly" => "https://github.com/BuglyDevTeam" }
+  s.author       = { "Bugly" => "https://github.com/BuglyDevTeam" }
+  s.source       = { :http => "http://softfile.3g.qq.com/myapp/buglysdk/BuglyHotfix-2.1.0.zip" }
   s.requires_arc = true  
   s.platform     = :ios
   s.ios.deployment_target = '7.0'
-  s.vendored_frameworks ='BuglyHotfix.framework'
-  s.frameworks = 'SystemConfiguration','Security','JavascriptCore'
+  s.frameworks = 'SystemConfiguration','Security'
   s.library = 'z','c++'
+  s.default_subspec = "Core"
+  s.subspec "Core" do |ss|
+      ss.vendored_frameworks = "BuglyHotfix.framework"
+      ss.source_files = "BuglyHotfix.framework/Headers/*.h"
+    end
   s.license      = {
-    :type => 'Copyright',
+    :type => 'Commercial',
     :text => <<-LICENSE
-      Copyright 2016 tencent.com. All rights reserved.
+              Copyright (C) 2017 Tencent Bugly, Inc. All rights reserved.
       LICENSE
   }
   end
